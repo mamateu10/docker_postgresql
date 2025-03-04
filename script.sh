@@ -1,5 +1,8 @@
 #!bin/bash
 
+# aturar en el cas de que hi hagi algun error
+set -e
+
 # iniciem el servei de postgresql
 service postgresql start
 
@@ -14,11 +17,3 @@ psql -U postgres -c "CREATE USER \"${POSTGRES_USER}\" WITH PASSWORD '${POSTGRES_
 # donam permisos a la base de dades
 psql -U postgres -c "GRANT ALL PRIVILEGES ON DATABASE videogames TO \"${POSTGRES_USER}\";"
 
-
-
-# descarregem el script per a la configuració de postgresql i la creació de la base de dades
-RUN wget https://raw.githubusercontent.com/mamateu10/docker_postgresql/refs/heads/main/script.sh
-# assignar permisos al fitxer
-RUN chmod +x script.sh
-# executam el script
-RUN ./script.sh
