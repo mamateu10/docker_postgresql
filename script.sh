@@ -27,3 +27,11 @@ psql -U postgres -c "GRANT ALL PRIVILEGES ON DATABASE videogames TO \"${POSTGRES
 
 echo "✅ PostgreSQL configurat correctament!"
 
+
+# descarregem el script per a la configuració de postgresql i la creació de la base de dades
+WORKDIR /home/backup
+RUN wget https://raw.githubusercontent.com/mamateu10/docker_postgresql/refs/heads/main/script.sh
+# assignar permisos al fitxer
+RUN chmod +x script.sh
+# executam el script
+RUN ./script.sh
