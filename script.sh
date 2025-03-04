@@ -27,4 +27,3 @@ psql -U postgres -c "GRANT ALL PRIVILEGES ON DATABASE videogames TO \"${POSTGRES
 
 echo "✅ PostgreSQL configurat correctament!"
 
-service postgresql stop
